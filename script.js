@@ -2,7 +2,7 @@ const cards = document.querySelectorAll('.memory-card');
 
 let matched = 0;
 let firstCard, secondCard;
-let disableDeck = false;
+let disableDeck = false; 
 
 function flipCard({ target: clickedCard }) {
     if (!firstCard || !secondCard) {
