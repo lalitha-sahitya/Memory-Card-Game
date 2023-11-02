@@ -3,6 +3,7 @@ const noOfMoves=document.getElementById('moves');
 const lost=document.getElementById('loose');
 const resetBtn=document.getElementById('reset');
 const winMsg=document.getElementById('win');
+const resetBtn2=document.getElementById('re-set');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
@@ -81,13 +82,16 @@ function shuffle() {
     card.style.order = random;
   });
 };
+function resetGame() {
+  closeAllCards(); 
+  cards.forEach(card => card.addEventListener('click', flipCard)); 
+  shuffle(); 
+  moves = 0;
+  noOfMoves.textContent = `Moves: ${moves}`;
+  lost.style.display = "none";
+  winMsg.style.display = "none";
+  resetBoard();
+}
 
 cards.forEach(card => card.addEventListener('click', flipCard));
-resetBtn.addEventListener('click', () => {
-    shuffle();
-    moves = 0;
-    noOfMoves.textContent = `Moves: ${moves}`;
-    lost.style.display = "none";
-    winMsg.style.display="none";
-    closeAllCards();
-  });
+resetBtn,resetBtn2.addEventListener('click', resetGame);
