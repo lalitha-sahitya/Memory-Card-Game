@@ -53,7 +53,7 @@ h1{
     transform: scale(.90);
     transition: transform 0.2s;
 }
-.memory-card.flip.front-side{
+.memory-card.flip{
     transform: rotateY(180deg);
 }
 
