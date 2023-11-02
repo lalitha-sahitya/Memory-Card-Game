@@ -23,7 +23,7 @@ function flipCard() {
         noOfMoves.textContent = `Moves : ${moves}`;
       secondCard = this;
       checkForMatch();
-      if(moves>18){
+      if(moves>20){
         lost.style.display="block";
       }
     }
@@ -65,10 +65,15 @@ function unflipCards() {
 }
 
 function resetBoard() {
- hasFlippedCard=false;
- lockBoard=false;
+ hasFlippedCard = false;
+ lockBoard = false;
  firstCard=null;
  secondCard=null;
+}
+function closeAllCards(){
+  cards.forEach(card=>{
+    card.classList.remove('flip');
+  });
 }
 function shuffle() {
   cards.forEach(card => {
@@ -84,4 +89,5 @@ resetBtn.addEventListener('click', () => {
     noOfMoves.textContent = `Moves: ${moves}`;
     lost.style.display = "none";
     winMsg.style.display="none";
+    closeAllCards();
   });
