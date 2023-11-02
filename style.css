@@ -6,7 +6,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 120vh;
     display: flex;
     background: linear-gradient(175deg, rgb(82, 173, 210), rgb(49, 143, 152));
     justify-content: center; 
@@ -68,4 +68,26 @@ h1{
 }
 .back-side{
     transform: rotateY(180deg);
+}
+#moves{
+    font-size: 20px;
+    font-family: 700;
+    padding: 30px;
+}
+h2{
+    display: none;
+    text-align: center;
+}
+#reset{
+    background-color:  rgb(157, 188, 201);
+    outline: none;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+#win{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    display: none;
 }

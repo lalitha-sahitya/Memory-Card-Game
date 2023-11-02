@@ -1,8 +1,14 @@
 const cards = document.querySelectorAll('.memory-card');
-
+const noOfMoves=document.getElementById('moves');
+const lost=document.getElementById('loose');
+const resetBtn=document.getElementById('reset');
+const winMsg=document.getElementById('win');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let moves=0;
+let score=0;
+
 
 function flipCard() {
     if (lockBoard || this === firstCard) return;
@@ -13,17 +19,28 @@ function flipCard() {
       hasFlippedCard = true;
       firstCard = this;
     } else {
+        moves++;
+        noOfMoves.textContent = `Moves : ${moves}`;
       secondCard = this;
       checkForMatch();
+      if(moves>30){
+        lost.style.display="block";
+      }
     }
   }
+ 
   
+
 function checkForMatch() {
   let firstCardImage = firstCard.querySelector('.back-side').getAttribute('src');
   let secondCardImage = secondCard.querySelector('.back-side').getAttribute('src');
 
   if (firstCardImage === secondCardImage) {
     disableCards();
+    score++;
+    if(score==8){
+        winMsg.style.display="block";
+    }
   } else {
     unflipCards();
   }
@@ -53,7 +70,6 @@ function resetBoard() {
  firstCard=null;
  secondCard=null;
 }
-
 function shuffle() {
   cards.forEach(card => {
     let random = Math.floor(Math.random() * 16);
@@ -62,3 +78,10 @@ function shuffle() {
 };
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+resetBtn.addEventListener('click', () => {
+    shuffle();
+    moves = 0;
+    noOfMoves.textContent = `Moves: ${moves}`;
+    lost.style.display = "none";
+    winMsg.style.display="none";
+  });
