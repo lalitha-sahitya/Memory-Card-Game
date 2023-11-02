@@ -23,7 +23,7 @@ function flipCard() {
         noOfMoves.textContent = `Moves : ${moves}`;
       secondCard = this;
       checkForMatch();
-      if(moves>30){
+      if(moves>18){
         lost.style.display="block";
       }
     }
