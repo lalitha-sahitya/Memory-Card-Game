@@ -37,8 +37,8 @@ function checkForMatch() {
   let secondCardImage = secondCard.querySelector('.back-side').getAttribute('src');
 
   if (firstCardImage === secondCardImage) {
-    disableCards();
     score++;
+    disableCards();
     if(score==8){
         winMsg.style.display="block";
     }
@@ -87,6 +87,7 @@ function resetGame() {
   cards.forEach(card => card.addEventListener('click', flipCard)); 
   shuffle(); 
   moves = 0;
+  score = 0;
   noOfMoves.textContent = `Moves: ${moves}`;
   lost.style.display = "none";
   winMsg.style.display = "none";
