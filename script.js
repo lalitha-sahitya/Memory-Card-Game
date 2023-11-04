@@ -10,7 +10,6 @@ let firstCard, secondCard;
 let moves=0;
 let score=0;
 
-
 function flipCard() {
     if (lockBoard || this === firstCard) return;
     
@@ -56,13 +55,12 @@ function disableCards() {
 
 function unflipCards() {
   lockBoard = true;
-
   setTimeout(() => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
 
     resetBoard();
-  }, 1500);
+  }, 1000);
 }
 
 function resetBoard() {
@@ -95,72 +93,5 @@ function resetGame() {
 }
 
 cards.forEach(card => card.addEventListener('click', flipCard));
-resetBtn,resetBtn2.addEventListener('click', resetGame);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+resetBtn2.addEventListener('click', resetGame);
+resetBtn.addEventListener('click', resetGame);
