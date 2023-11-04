@@ -24,10 +24,6 @@ function flipCard() {
     } else {
         moves++;
         noOfMoves.textContent = `Moves : ${moves}`;
-        if(moves<lessMoves||lessMoves===0){
-          lessMoves=moves;
-          leastMoves.textContent=`Least Moves: ${lessMoves}`;
-        }
       secondCard = this;
       checkForMatch();
       if(moves>20){
@@ -35,9 +31,6 @@ function flipCard() {
       }
     }
   }
- 
-  
-
 function checkForMatch() {
   let firstCardImage = firstCard.querySelector('.back-side').getAttribute('src');
   let secondCardImage = secondCard.querySelector('.back-side').getAttribute('src');
@@ -45,6 +38,10 @@ function checkForMatch() {
   if (firstCardImage === secondCardImage) {
     score++;
     scoreDisplay.textContent=`Score : ${score}/8`;
+    if(score==8){
+      lessMoves=moves;
+      leastMoves.textContent=`Least Moves: ${lessMoves}`;
+    }
     disableCards();
     if(score==8){
         winMsg.style.display="block";
