@@ -38,7 +38,7 @@ function checkForMatch() {
   if (firstCardImage === secondCardImage) {
     score++;
     scoreDisplay.textContent=`Score : ${score}/8`;
-    if(score==8){
+    if(score==8&&moves<lessMoves){
       lessMoves=moves;
       leastMoves.textContent=`Least Moves: ${lessMoves}`;
     }
